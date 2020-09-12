@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.MessFrag">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarmess"
+        android:layout_width="417dp"
+        android:layout_height="70dp"
+        android:background="@color/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" >
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/shadown"
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp"
+            android:textSize="26dp"
+            android:text="Bác sĩ tư vấn"/>
+
+        <ImageView
+            android:id="@+id/imgcall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="165dp"
+            android:src="@drawable/baseline_phone_white_18" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+</FrameLayout>
