@@ -43,11 +43,13 @@
     <fragment
         android:name="com.example.datn1.fragment.TopNewFrag"
         android:id="@+id/fragtopnew"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <fragment
         android:name="com.example.datn1.fragment.SucKhoeFrag"
         android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
         android:layout_height="wrap_content"/>
 </LinearLayout>
 </ScrollView>

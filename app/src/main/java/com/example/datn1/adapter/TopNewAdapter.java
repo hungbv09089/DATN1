@@ -8,15 +8,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.datn1.R;
 import com.example.datn1.model.TopNew;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class TopNewAdapter extends PagerAdapter {
+public class TopNewAdapter extends RecyclerView.Adapter<TopNewAdapter.RecyclerViewHolder> {
     Context context;
     ArrayList<TopNew> topNewList;
 
@@ -25,30 +24,32 @@ public class TopNewAdapter extends PagerAdapter {
         this.topNewList = topNewList;
     }
 
+    @NonNull
+    @Override
+    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.item_topnew,parent,false);
+        return new RecyclerViewHolder(view);
+    }
 
     @Override
-    public int getCount() {
+    public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
+        holder.tvtitletopnew.setText(topNewList.get(position).getTitletopview());
+//        holder.imgtopnew.setImageDrawable(topNewList.get(position).getImagetopview());
+    }
+
+    @Override
+    public int getItemCount() {
         return topNewList.size();
     }
 
-    @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view==object;
-    }
 
-    @NonNull
-    @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View view= LayoutInflater.from(context).inflate(R.layout.item_topnew,null);
-        ImageView imgtopnew=view.findViewById(R.id.imgtopnew);
-        TextView tvtitle=view.findViewById(R.id.titletopnew);
-
-        Picasso.with(context).load(topNewList.get(position).getImage()).into(imgtopnew);
-        tvtitle.setText(topNewList.get(position).getTitle());
-        container.addView(view);
-        return view;
-    }
-    public void destroyItem(ViewGroup viewGroup,int position,Object object){
-        viewGroup.removeView((View) object);
+    public class RecyclerViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgtopnew;
+        TextView tvtitletopnew;
+        public RecyclerViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imgtopnew=itemView.findViewById(R.id.imgtopnew);
+            tvtitletopnew=itemView.findViewById(R.id.titletopnew);
+        }
     }
 }

@@ -1,29 +1,26 @@
 package com.example.datn1.model;
 
 public class TopNew {
-    private String title,image;
+    private String titletopview,imagetopview;
 
-    public TopNew(String title, String image) {
-        this.title = title;
-        this.image = image;
+    public TopNew(String titletopview, String imagetopview) {
+        this.titletopview = titletopview;
+        this.imagetopview = imagetopview;
     }
 
-    public TopNew() {
+    public String getTitletopview() {
+        return titletopview;
     }
 
-    public String getTitle() {
-        return title;
+    public void setTitletopview(String titletopview) {
+        this.titletopview = titletopview;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public String getImagetopview() {
+        return imagetopview;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
+    public void setImagetopview(String imagetopview) {
+        this.imagetopview = imagetopview;
     }
 }
