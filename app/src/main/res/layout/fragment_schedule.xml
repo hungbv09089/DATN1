@@ -175,7 +175,7 @@
                 android:layout_gravity="center"
                 android:text="Đăng kí"
                 android:backgroundTint="@color/buttom"
-                android:background="@drawable/borderbuttom"
+                android:background="@drawable/bg_btn_login"
                 android:layout_width="220dp"
                 android:textColor="@color/shadown"
                 android:layout_height="wrap_content"/>
