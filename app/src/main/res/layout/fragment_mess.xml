@@ -1,75 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.MessFrag">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarmess"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" >
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/shadown"
-            android:textStyle="bold"
-            android:layout_marginLeft="15dp"
-            android:textSize="26dp"
-            android:text="Bác sĩ tư vấn"/>
+    <data>
 
-        <ImageView
-            android:id="@+id/imgcall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="165dp"
-            android:src="@drawable/baseline_phone_white_18" />
-    </androidx.appcompat.widget.Toolbar>
-    <RelativeLayout
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:clickable="true"
-        android:id="@+id/fab"
-        android:layout_alignParentBottom="true"
-        app:fabSize="mini"
-        android:src="@drawable/baseline_send_black_36"
-        android:layout_alignParentEnd="true"
-        android:layout_width="wrap_content"
-        android:background="@color/shadown"
-        android:layout_height="wrap_content"/>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/fab"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
-        <EditText
-            android:id="@+id/input"
-            android:layout_width="match_parent"
+        tools:context=".fragment.MessFrag">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar3"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#019AE8"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="  Input"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@id/fab"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:layout_marginTop="70dp"
-            android:dividerHeight="16dp"
-            android:divider="@android:color/transparent"
-            android:id="@+id/list_of_messages"
-            android:layout_marginBottom="16dp">
-        </ListView>
-    </RelativeLayout>
-</FrameLayout>
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Bác sĩ tư vấn"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar3" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="#00D59191"
+            android:padding="8dp"
+            android:src="@drawable/ic_more"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar3" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:padding="8dp"
+            android:src="@android:drawable/stat_sys_phone_call"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+        <EditText
+            android:id="@+id/edtContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_edt_mess"
+            android:ems="10"
+            android:hint="Thêm văn bản..."
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="#00FFFFFF"
+            android:padding="8dp"
+            android:src="@drawable/ic_send"
+            app:layout_constraintBottom_toBottomOf="@+id/edtContent"
+            app:layout_constraintEnd_toEndOf="@+id/edtContent"
+            app:layout_constraintTop_toTopOf="@+id/edtContent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:id="@+id/rvMessage"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/edtContent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
