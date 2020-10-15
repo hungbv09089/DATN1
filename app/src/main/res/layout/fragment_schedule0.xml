@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.ScheduleFrag">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Đặt lịch"
+            android:textColor="#FFF"
+            android:textSize="26dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvhistori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="220dp"
+            android:text="Lịch sử"
+            android:textColor="#FFF"
+            android:textSize="18dp" />
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_marginTop="70dp"
+        android:fillViewport="true">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name1layout"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:textSize="22dp"
+                android:layout_width="match_parent"
+                app:hintEnabled="true"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameedit"
+                    android:paddingLeft="5dp"
+                    android:hint="Họ và tên"
+                    android:textSize="22dp"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/birthlayout"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                app:hintEnabled="true"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/birthedit"
+                    android:hint="Năm sinh"
+                    android:paddingLeft="5dp"
+                    android:textSize="22dp"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phonelayout"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                app:hintEnabled="true"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phoneedit"
+                    android:hint="Số điện thoại"
+                    android:textSize="22dp"
+                    android:paddingLeft="5dp"
+                    android:inputType="phone"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/addresslayout"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                app:hintEnabled="true"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/addressedit"
+                    android:hint="Địa chỉ"
+                    android:textSize="22dp"
+                    android:paddingLeft="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:textColor="#000"
+                android:text="Thời gian "
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:textSize="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/timelayout"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                app:hintEnabled="true"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/timeedit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:hint="dd/mm/yyyy"
+                    android:inputType="datetime"
+                    android:paddingLeft="5dp"
+                    android:textSize="22dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <RadioGroup
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Nam"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:layout_marginLeft="90dp"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nữ" />
+            </RadioGroup>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                app:hintEnabled="true"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit"
+                    android:hint="Ghi chú"
+                    android:layout_height="145dp"
+                    android:layout_width="match_parent"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:text="Đăng kí"
+                android:backgroundTint="@color/buttom"
+                android:background="@drawable/bg_btn_login"
+                android:layout_width="220dp"
+                android:textColor="@color/shadown"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

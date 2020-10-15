@@ -30,7 +30,7 @@ public class MessageAdapter extends ListAdapter<Message, MessageAdapter.ViewHold
         }
     };
 
-    public MessageAdapter() {
+    public  MessageAdapter() {
         super(DIFF_CALLBACK);
     }
 

@@ -1,185 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.ScheduleFrag">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="Đặt lịch"
-            android:textColor="#FFF"
-            android:textSize="26dp"
-            android:textStyle="bold" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="0dp"
+            android:layout_height="?android:attr/actionBarSize"
+            android:elevation="8dp"
+            app:cardBackgroundColor="#019AE8"
+            app:cardElevation="8dp"
+            app:cardMaxElevation="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tvhistori"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="220dp"
-            android:text="Lịch sử"
-            android:textColor="#FFF"
-            android:textSize="18dp" />
-    </androidx.appcompat.widget.Toolbar>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none"
-        android:layout_marginTop="70dp"
-        android:fillViewport="true">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/name1layout"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="10dp"
-                android:textSize="22dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                app:hintEnabled="true"
-                android:layout_height="wrap_content">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/nameedit"
-                    android:paddingLeft="5dp"
-                    android:hint="Họ và tên"
-                    android:textSize="22dp"
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"/>
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/birthlayout"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="match_parent"
-                app:hintEnabled="true"
-                android:layout_height="wrap_content">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/birthedit"
-                    android:hint="Năm sinh"
-                    android:paddingLeft="5dp"
-                    android:textSize="22dp"
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"/>
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phonelayout"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="match_parent"
-                app:hintEnabled="true"
-                android:layout_height="wrap_content">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/phoneedit"
-                    android:hint="Số điện thoại"
-                    android:textSize="22dp"
-                    android:paddingLeft="5dp"
-                    android:inputType="phone"
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"/>
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/addresslayout"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="match_parent"
-                app:hintEnabled="true"
-                android:layout_height="wrap_content">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/addressedit"
-                    android:hint="Địa chỉ"
-                    android:textSize="22dp"
-                    android:paddingLeft="5dp"
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"/>
-            </com.google.android.material.textfield.TextInputLayout>
-            <TextView
-                android:textColor="#000"
-                android:text="Thời gian "
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:textSize="20dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/timelayout"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="match_parent"
-                app:hintEnabled="true"
-                android:layout_height="wrap_content">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/timeedit"
-                    android:hint="dd/mm/yyyy"
-                    android:textSize="22dp"
-                    android:inputType="datetime"
-                    android:paddingLeft="5dp"
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"/>
-            </com.google.android.material.textfield.TextInputLayout>
-            <RadioGroup
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="10dp"
-                android:layout_height="wrap_content">
-                <RadioButton
-                    android:text="Nam"
-                    android:textSize="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <RadioButton
-                    android:layout_marginLeft="90dp"
-                    android:textSize="20dp"
+                android:layout_height="match_parent"
+                android:elevation="8dp">
+
+                <TextView
+                    android:id="@+id/textView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nữ" />
-            </RadioGroup>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="10dp"
-                android:layout_width="match_parent"
-                app:hintEnabled="true"
-                android:layout_height="wrap_content">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit"
-                    android:hint="Ghi chú"
-                    android:layout_height="145dp"
-                    android:layout_width="match_parent"/>
-            </com.google.android.material.textfield.TextInputLayout>
-            <Button
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                android:text="Đăng kí"
-                android:backgroundTint="@color/buttom"
-                android:background="@drawable/bg_btn_login"
-                android:layout_width="220dp"
-                android:textColor="@color/shadown"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </ScrollView>
+                    android:layout_marginStart="16dp"
+                    android:text="Đặt lịch"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="Lịch sử"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#DCDCDC"
+            android:ems="10"
+            android:hint="Năm sinh"
+            android:inputType="textPersonName"
+            android:paddingStart="4dp"
+            android:textColorHint="#DCDCDC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#DCDCDC"
+            android:ems="10"
+            android:hint="Tên"
+            android:inputType="textPersonName"
+            android:paddingStart="4dp"
+            android:textColorHint="#DCDCDC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#DCDCDC"
+            android:ems="10"
+            android:hint="Số điện thoại"
+            android:inputType="textPersonName"
+            android:paddingStart="4dp"
+            android:textColorHint="#DCDCDC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#DCDCDC"
+            android:ems="10"
+            android:hint="Địa chỉ"
+            android:inputType="textPersonName"
+            android:paddingStart="4dp"
+            android:textColorHint="#DCDCDC"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Thời gian"
+            android:textColor="#C1000000"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="dd/mm/yyyy"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName5"
+            app:layout_constraintStart_toStartOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="#00FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName6"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName6"
+            app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName6"
+            app:srcCompat="@drawable/ic_choose_date" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6">
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="100dp"
+                android:text="Nam" />
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nữ" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/editTextTextPersonName7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_edt_note"
+            android:ems="10"
+            android:hint="Ghi chú"
+            android:inputType="textMultiLine"
+            android:padding="8dp"
+            android:textSize="14sp"
+            app:layout_constraintDimensionRatio="4:1"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName6"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:paddingVertical="8dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_btn"
+            android:text="Đăng ký"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName7"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName7"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
