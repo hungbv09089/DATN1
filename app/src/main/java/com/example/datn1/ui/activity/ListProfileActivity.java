@@ -54,11 +54,12 @@ public class ListProfileActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void fakeData() {
-        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam"));
-        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam"));
-        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam"));
-        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam"));
-        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam"));
+        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam",""));
+        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam",""));
+        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam",""));
+        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam",""));
+        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam",""));
+
     }
 
     private void createData() {
