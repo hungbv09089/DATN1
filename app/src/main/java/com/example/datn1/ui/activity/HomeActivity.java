@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
         headerNavBinding = HeaderNavBinding.bind(binding.navView.getHeaderView(0));
 
-        headerNavBinding.setUser(new User("https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35", "Ngọc Trinh", "abcasckjkac@gmail.com"));
+        headerNavBinding.setUser(new User("https://media.tinmoi.vn/upload/camnhung/2020/11/17/130719-ngoc-trinh-bi-mia-mai-tm4.jpg", "Ngọc Trinh", "abcasckjkac@gmail.com"));
 
         binding.navView.setNavigationItemSelectedListener(this);
 
@@ -56,13 +56,11 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
     private void fakeData() {
         topNewList = new ArrayList<>();
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
+        topNewList.add(new TopNew("HOT - Ngọc Trinh muối mặt khi bị 'người tình' Hoài Linh mỉa mai chuyện đào mỏ đại gia","https://media.tinmoi.vn/upload/camnhung/2020/11/17/130719-ngoc-trinh-bi-mia-mai-tm4.jpg"));
+        topNewList.add(new TopNew("HOT - Ngọc Trinh muối mặt khi bị 'người tình' Hoài Linh mỉa mai chuyện đào mỏ đại gia","https://media.tinmoi.vn/upload/camnhung/2020/11/17/130719-ngoc-trinh-bi-mia-mai-tm4.jpg"));
+        topNewList.add(new TopNew("HOT - Ngọc Trinh muối mặt khi bị 'người tình' Hoài Linh mỉa mai chuyện đào mỏ đại gia","https://media.tinmoi.vn/upload/camnhung/2020/11/17/130719-ngoc-trinh-bi-mia-mai-tm4.jpg"));
+        topNewList.add(new TopNew("HOT - Ngọc Trinh muối mặt khi bị 'người tình' Hoài Linh mỉa mai chuyện đào mỏ đại gia","https://media.tinmoi.vn/upload/camnhung/2020/11/17/130719-ngoc-trinh-bi-mia-mai-tm4.jpg"));
+        topNewList.add(new TopNew("HOT - Ngọc Trinh muối mặt khi bị 'người tình' Hoài Linh mỉa mai chuyện đào mỏ đại gia","https://media.tinmoi.vn/upload/camnhung/2020/11/17/130719-ngoc-trinh-bi-mia-mai-tm4.jpg"));
     }
 
     @Override
