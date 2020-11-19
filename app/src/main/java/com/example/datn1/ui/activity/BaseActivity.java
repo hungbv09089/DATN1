@@ -1,4 +1,4 @@
-package com.example.datn1.activity;
+package com.example.datn1.ui.activity;
 
 import android.view.Window;
 import android.view.WindowManager;

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:scrollbars="none"
     android:fillViewport="true"
-    tools:context=".fragment.NewsPaperFrag">
+    tools:context=".ui.fragment.NewsPaperFrag">
 
 <LinearLayout
     android:id="@+id/linearlayout"
@@ -40,13 +40,13 @@
     </androidx.appcompat.widget.Toolbar>
 
     <fragment
-        android:name="com.example.datn1.fragment.TopNewFrag"
+        android:name="com.example.datn1.ui.fragment.TopNewFrag"
         android:id="@+id/fragtopnew"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <fragment
-        android:name="com.example.datn1.fragment.SucKhoeFrag"
+        android:name="com.example.datn1.ui.fragment.SucKhoeFrag"
         android:layout_width="match_parent"
         android:layout_marginTop="5dp"
         android:layout_height="wrap_content"/>

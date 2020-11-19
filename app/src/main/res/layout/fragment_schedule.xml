@@ -144,27 +144,29 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/edtDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
+            android:focusable="false"
             android:inputType="textPersonName"
             android:text="dd/mm/yyyy"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName5"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView17"
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/btnDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:background="#00FFFFFF"
-            app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName6"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName6"
-            app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName6"
+            app:layout_constraintBottom_toBottomOf="@+id/edtDate"
+            app:layout_constraintEnd_toEndOf="@+id/edtDate"
+            app:layout_constraintTop_toTopOf="@+id/edtDate"
             app:srcCompat="@drawable/ic_choose_date" />
 
         <RadioGroup
@@ -176,7 +178,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6">
+            app:layout_constraintTop_toBottomOf="@+id/edtDate">
 
             <RadioButton
                 android:id="@+id/radioButton3"
@@ -204,8 +206,8 @@
             android:padding="8dp"
             android:textSize="14sp"
             app:layout_constraintDimensionRatio="4:1"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName6"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
+            app:layout_constraintEnd_toEndOf="@+id/edtDate"
+            app:layout_constraintStart_toStartOf="@+id/edtDate"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
         <Button

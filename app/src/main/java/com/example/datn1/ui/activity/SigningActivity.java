@@ -1,4 +1,4 @@
-package com.example.datn1.activity;
+package com.example.datn1.ui.activity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;

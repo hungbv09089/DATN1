@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.HomeActivity"
+        <activity android:name=".ui.activity.HomeActivity"
             android:windowSoftInputMode="adjustResize">
 
             <intent-filter>
@@ -19,14 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SigningActivity" />
-        <activity android:name=".activity.SplashActivity" />
-        <activity android:name=".activity.SucKhoeActivity" />
-        <activity android:name=".activity.ConfirmPasswordActivity" />
-        <activity android:name=".activity.OTPConfirmActivity" />
-        <activity android:name=".activity.NumberPhoneConfimActivity" />
+        <activity android:name=".ui.activity.SigningActivity" />
+        <activity android:name=".ui.activity.SplashActivity" />
+        <activity android:name=".ui.activity.ConfirmPasswordActivity" />
+        <activity android:name=".ui.activity.OTPConfirmActivity" />
+        <activity android:name=".ui.activity.NumberPhoneConfimActivity" />
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:windowSoftInputMode="adjustResize" />
     </application>
 

@@ -1,4 +1,4 @@
-package com.example.datn1.fragment;
+package com.example.datn1.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
