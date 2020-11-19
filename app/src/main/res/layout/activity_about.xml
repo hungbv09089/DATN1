@@ -5,13 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.AboutActivity">
+
     <ImageView
-        android:layout_width="426dp"
-        android:layout_height="319dp"
+        android:id="@+id/imageView9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
         android:src="@drawable/benhvien"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-12dp"
-        tools:layout_editor_absoluteY="-35dp" />
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -28,17 +33,21 @@
         app:srcCompat="@drawable/ic_back_black" />
 
     <ImageView
+        android:id="@+id/imageView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/logo_splash"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="213dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:layout_width="384dp"
-        android:layout_height="288dp"
-        android:textColor="#000000"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp"
         android:text="     Tiền thân là Viện Y học lâm sàng các bệnh Nhiệt đới,
 qua 13 năm phát triển, Bệnh viện Bệnh Nhiệt đới trung
 ương đã lớn mạnh cả về lượng và chất. Từ 1 tòa nhà
@@ -51,8 +60,10 @@ hoạt động. Ngày 26/06/2018, Bộ Y tế đã ra chính thức
 cho cơ sở Kim Chung. Hiện nay, với 25 Khoa phòng và
 01 Viện Đào tạo bệnh truyền nhiễm và Nhiệt đới, bệnh
 viện là cơ sở khám bệnh, chữa bệnh đa khoa "
+        android:textColor="#000000"
         android:textSize="@dimen/_13sdp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="11dp"
-        tools:layout_editor_absoluteY="340dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
