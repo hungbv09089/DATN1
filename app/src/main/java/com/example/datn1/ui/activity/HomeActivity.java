@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -66,8 +67,11 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.item_user:
+                startActivity(new Intent(HomeActivity.this,ListProfileActivity.class));
+                break;
             case R.id.item_info:
-                Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomeActivity.this,AboutActivity.class));
                 break;
         }
         return true;
