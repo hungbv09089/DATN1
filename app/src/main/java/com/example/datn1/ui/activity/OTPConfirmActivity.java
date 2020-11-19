@@ -1,15 +1,19 @@
 package com.example.datn1.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.datn1.R;
+import com.example.datn1.databinding.ActivityNumberPhoneConfimBinding;
+import com.example.datn1.databinding.ActivityOTPConfimBinding;
 
-public class OTPConfirmActivity extends AppCompatActivity {
+public class OTPConfirmActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edtOtp1;
     private EditText edtOtp2;
     private EditText edtOtp3;
@@ -17,16 +21,23 @@ public class OTPConfirmActivity extends AppCompatActivity {
     private EditText edtOtp5;
     private EditText edtOtp6;
 
+    ActivityOTPConfimBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_o_t_p_confim);
+
+        binding = ActivityOTPConfimBinding.inflate(getLayoutInflater());
+
+        setContentView(binding.getRoot());
 
         initView();
 
         //Xét sự kiện tự động chuyển focus các edt
         setFocusEdtOTP();
+
+
+        binding.btnSigin.setOnClickListener(this);
     }
 
     private void initView() {
@@ -72,4 +83,16 @@ public class OTPConfirmActivity extends AppCompatActivity {
     private boolean checkEmty(String s) {
         return s.isEmpty();
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnSigin:
+
+                startActivity(new Intent(this, HomeActivity.class));
+                finish();
+                break;
+        }
+    }
+
 }

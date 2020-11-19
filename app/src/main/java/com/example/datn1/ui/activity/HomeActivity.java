@@ -1,6 +1,7 @@
 package com.example.datn1.ui.activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.datn1.R;
@@ -72,6 +75,13 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 break;
             case R.id.item_info:
                 startActivity(new Intent(HomeActivity.this,AboutActivity.class));
+                break;
+            case R.id.item_logout:
+                AlertDialog.Builder builder=new AlertDialog.Builder(this);
+                View view= LayoutInflater.from(this).inflate(R.layout.dialog_logout,null,false);
+                builder.setView(view);
+                builder.create();
+                builder.show();
                 break;
         }
         return true;

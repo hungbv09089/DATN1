@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,13 +87,14 @@ public class ListProfileActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onClick(View view) {
                 alertDialog.dismiss();
+                startActivity(new Intent(ListProfileActivity.this,CreateProfileActivity.class));
             }
         });
 
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(ListProfileActivity.this,CreateProfileActivity.class));
             }
         });
 
