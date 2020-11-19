@@ -1,5 +1,8 @@
 package com.example.datn1.adapter;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,17 +22,40 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
     public ProfileAdapter(List<Profile> list) {
         this.list = list;
     }
-
+ 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        AdapterProfileBinding binding = AdapterProfileBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
+        AdapterProfileBinding binding = AdapterProfileBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new ViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bind(list.get(position), (position + 1) + "");
+        holder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setTitle("Thông báo");
+                builder.setMessage("Bạn muốn?");
+                builder.setNegativeButton(Html.fromHtml("<font color='#673AB7'>Đặt lịch</font>"), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                builder.setPositiveButton(Html.fromHtml("<font color='#673AB7'>Xem chi tiết</font>"), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+
+                builder.create() ; builder.show();
+            }
+        });
     }
 
     @Override
