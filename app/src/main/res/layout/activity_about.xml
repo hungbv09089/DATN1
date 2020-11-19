@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.AboutActivity">
+    <ImageView
+        android:layout_width="426dp"
+        android:layout_height="319dp"
+        android:src="@drawable/benhvien"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-12dp"
+        tools:layout_editor_absoluteY="-35dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="#00FFFFFF"
+        android:padding="@dimen/_16sdp"
+        android:onClick="back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.008"
+        app:srcCompat="@drawable/ic_back_black" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_splash"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="213dp" />
+
+    <TextView
+        android:layout_width="384dp"
+        android:layout_height="288dp"
+        android:textColor="#000000"
+        android:text="     Tiền thân là Viện Y học lâm sàng các bệnh Nhiệt đới,
+qua 13 năm phát triển, Bệnh viện Bệnh Nhiệt đới trung
+ương đã lớn mạnh cả về lượng và chất. Từ 1 tòa nhà
+120 giường bệnh ban đầu đến nay Bệnh viện đã phát
+triển thành 2 cơ sở (tại 78 Giải Phóng, Hà Nội và tại
+Thôn Bầu xã Kim Chung, huyện Đông Anh, Hà Nội)
+Năm 2014 cơ sở Kim Chung bắt đầu được đưa vào
+hoạt động. Ngày 26/06/2018, Bộ Y tế đã ra chính thức
+ cấp giấy phép hoạt động khám chứa bệnh đa khoa
+cho cơ sở Kim Chung. Hiện nay, với 25 Khoa phòng và
+01 Viện Đào tạo bệnh truyền nhiễm và Nhiệt đới, bệnh
+viện là cơ sở khám bệnh, chữa bệnh đa khoa "
+        android:textSize="@dimen/_13sdp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="340dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
