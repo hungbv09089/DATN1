@@ -1,5 +1,8 @@
 package com.example.datn1.adapter;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.datn1.databinding.AdapterBottomNewsBinding;
 import com.example.datn1.model.TopNew;
+import com.example.datn1.ui.activity.WebViewActivity;
 
 import java.util.List;
 
@@ -26,7 +30,15 @@ public class BottomNewsAdapter extends RecyclerView.Adapter<BottomNewsAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        holder.binding.postItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(v.getContext(), WebViewActivity.class);
+                intent.putExtra("url",list.get(position).getTitletopview());
+                v.getContext().startActivity(intent);
+            }
+        });
         holder.binding.setNews(list.get(position));
     }
 

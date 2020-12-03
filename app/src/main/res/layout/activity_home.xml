@@ -8,6 +8,7 @@
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/mDrawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -32,6 +33,7 @@
                     android:layout_height="match_parent">
 
                     <ImageButton
+                        android:onClick="onClickMenu"
                         android:id="@+id/imageButton3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -62,11 +64,9 @@
 
             <TextView
                 android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:text="Top News"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text=""
                 android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -137,9 +137,10 @@
 
                 <Button
                     android:id="@+id/button4"
-                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_btn1"
+                    android:background="@drawable/bg_btn_login"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Đặt lịch khám"
                     android:textAllCaps="false"

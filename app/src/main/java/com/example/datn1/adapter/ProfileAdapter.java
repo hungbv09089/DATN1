@@ -39,7 +39,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         holder.bind(list.get(position), (position + 1) + "");
         holder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(final View view) {
+            public void onClick(final View  view) {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setTitle("Thông báo");
                 builder.setMessage("Bạn muốn?");

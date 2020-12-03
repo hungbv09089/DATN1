@@ -4,47 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
     tools:context=".ui.activity.LoginActivity">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#7E868D95"
-        android:textColor="#FFFFFF"
+        android:textColor="#FE0000"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="124dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_splash" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/roboto_regular"
-        android:text="DO4LIFE"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tip_pass"
@@ -52,34 +36,32 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:textColorHint="#FFFFFF"
-        app:boxBackgroundMode="outline"
+        android:textColorHint="#bdbdbd"
         app:hintTextAppearance="@style/MyHintStyle"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.06999999">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtTxtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
-            android:hint="Số điện thoại"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textCursorDrawable="@null" />
+            android:backgroundTint="#bdbdbd"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:textColor="#000"
+            android:textColorHint="#bdbdbd" />
     </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:textColorHint="#FFFFFF"
-        app:boxBackgroundMode="outline"
+        android:textColorHint="#bdbdbd"
         app:hintTextAppearance="@style/MyHintStyle"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,60 +71,74 @@
         app:layout_constraintVertical_bias="0.089999974">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtTxtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:backgroundTint="#FFFFFF"
+            android:backgroundTint="#bdbdbd"
             android:hint="Mật khẩu"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textCursorDrawable="@null" />
+            android:inputType="textPassword"
+            android:textColor="#000"
+            android:textColorHint="#bdbdbd" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
         android:background="@drawable/bg_btn_login"
-        android:fontFamily="@font/roboto_regular"
-        android:paddingVertical="16dp"
+        android:fontFamily="@font/roboto_bold"
+        android:onClick="onClickSignIn"
+        android:paddingVertical="10dp"
         android:text="Đăng nhập"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        android:textSize="9pt"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        app:layout_constraintVertical_bias="0.14999998" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
     <Button
         android:id="@+id/btn_quen_mat_khau"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="#00FFFFFF"
+        android:layout_marginBottom="72dp"
+        android:background="@android:color/transparent"
         android:fontFamily="@font/roboto_regular"
         android:text="Quên mật khẩu?"
+        android:paddingLeft="5dp"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="#1c8eff"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/btnLogin"
-        app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintStart_toStartOf="@+id/btnLogin"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintBottom_toTopOf="@+id/tvSignIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/tvSignIn"
+    android:id="@+id/tvSignIn"
+    android:onClick="GoToSignUp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="24dp"
+    android:fontFamily="@font/roboto_regular"
+    android:text="Bạn chưa có tài khoản?"
+    android:textColor="#1c8eff"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <TextView
+        android:id="@+id/txtAlert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_regular"
-        android:text="Bạn chưa có tài khoản?"
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView3" />
-
+        android:onClick="GoToSignUp"
+        android:text=""
+        android:textColor="#ff002b"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

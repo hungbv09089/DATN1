@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@drawable/login"
+    android:gravity="center"
     tools:context=".ui.activity.SplashActivity">
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/logo_splash"/>
+    <TextView
+        android:fontFamily="@font/roboto_bold"
+        android:text="DO4LIFE"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:fontFamily="@font/roboto_bold"
+        android:text="Hành động vì sức khỏe của bạn"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

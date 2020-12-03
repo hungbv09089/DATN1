@@ -31,14 +31,6 @@ public class NewsHomeFragment extends Fragment {
 
         //fake data
         topNewList = new ArrayList<>();
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-        topNewList.add(new TopNew("HOT - Người đẹp nhất","https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/120075446_378046819912743_5571873280035212113_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=wChsqgsOB28AX-sq2zp&_nc_ht=scontent.fhan3-1.fna&oh=898b9b8a8fbecf3e063d3b905cb6595b&oe=5FAC1C35"));
-
         binding.recyclerViewTop.setAdapter(new TopNewsAdapter(topNewList));
         binding.recyclerViewTop.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL,false));
         binding.recyclerViewBottom.setAdapter(new BottomNewsAdapter(topNewList));

@@ -3,78 +3,68 @@ package com.example.datn1.ui.activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.example.datn1.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Calendar;
 
-public class SigningActivity extends BaseActivity implements View.OnClickListener {
-    private TextView tvBirthday;
-
-    private Button btnSigin;
-
-
+public class SigningActivity extends BaseActivity{
+    TextInputEditText txtFullname;
+    private FirebaseAuth mAuth;
+    TextInputEditText txtEmail;
+    TextInputEditText txtPassword;
+    TextInputEditText txtCfPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_signing);
-
-        initView();
-
-
-        tvBirthday.setOnClickListener(this);
-        btnSigin.setOnClickListener(this);
+        txtCfPassword=findViewById(R.id.txtCfPassword);
+        txtPassword=findViewById(R.id.txtPassword);
+        txtEmail=findViewById(R.id.txtEmail);
+        txtFullname=findViewById(R.id.txtFullname);
     }
-
-    private void initView() {
-        tvBirthday = findViewById(R.id.tv_birthday);
-        btnSigin = findViewById(R.id.btnSigin);
-
+    public void onBack(View view){
+        super.onBackPressed();
     }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tv_birthday:
-                showDialogDatePicker();
-                break;
-            case R.id.btnSigin:
-                startActivity(new Intent(this,NumberPhoneConfimActivity.class));
-                finish();
-                break;
-
-        }
-    }
-
-    private void showDialogDatePicker() {
-        Calendar calendar = Calendar.getInstance();
-        int y = calendar.get(Calendar.YEAR);
-        int m = calendar.get(Calendar.MONTH);
-        int d = calendar.get(Calendar.DAY_OF_MONTH);
-        DatePickerDialog dialog = new DatePickerDialog(SigningActivity.this, new DatePickerDialog.OnDateSetListener() {
+    public void onSignUp(View view){
+        mAuth.createUserWithEmailAndPassword(txtEmail.getText().toString(),txtPassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
-            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                String day, month;
-                if (i2 < 10) {
-                    day = "0" + i2;
-                } else {
-                    day = i2 + "";
-                }
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Log.d("LOGIN:", "signUpWithEmail:success");
+                    FirebaseUser user= mAuth.getCurrentUser();
+                    user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                FirebaseAuth.getInstance().signOut();
+                                startActivity(new Intent(getApplicationContext(),VerifiedActivity.class));
+                                finish();
+                            }
+                            else {
 
-                if (i1 + 1 < 10) {
-                    month = "0" + (i1 + 1);
+                            }
+                        }
+                    });
                 } else {
-                    month = i1 + "";
+                    Log.w("LOGINL:", "signUpWithEmail:failure", task.getException());
                 }
-
-                tvBirthday.setText(day + "/" + month + "/" + i);
             }
-        }, y, m, d);
-        dialog.show();
+        });
     }
-
 }
