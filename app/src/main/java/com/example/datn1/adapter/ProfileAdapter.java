@@ -20,6 +20,7 @@ import com.example.datn1.model.Profile;
 import com.example.datn1.model.UserProfile;
 import com.example.datn1.ui.activity.CreateProfileActivity;
 import com.example.datn1.ui.activity.ListProfileActivity;
+import com.example.datn1.ui.activity.ProfileDetailAcivity;
 import com.example.datn1.ui.activity.ScheduleActivity;
 import com.squareup.picasso.Picasso;
 
@@ -47,11 +48,32 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         holder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View  view) {
+                String fullname = list.get(position).getFullname();
+                String avatar = list.get(position).getAvatar();
+                String email = list.get(position).getEmail();
+                String birthday = list.get(position).getBirthday();
+                String CMND = list.get(position).getCMND();
+                String hometown = list.get(position).getHometown();
+                String phonenumber = list.get(position).getPhonenumber();
+                String address = list.get(position).getAddress();
+                Boolean male = list.get(position).getMale();
 
                 Intent data = ((Activity) view.getContext()).getIntent();
                 String username=data.getStringExtra("username");
                 String password=data.getStringExtra("password");
-                view.getContext().startActivity(new Intent(view.getContext(), ScheduleActivity.class));
+                Intent intent= new Intent(view.getContext(), ProfileDetailAcivity.class);
+                intent.putExtra("username",username);
+                intent.putExtra("password",password);
+                intent.putExtra("fullname",fullname);
+                intent.putExtra("avatar",avatar);
+                intent.putExtra("email",email);
+                intent.putExtra("birthday",birthday);
+                intent.putExtra("CMND",CMND);
+                intent.putExtra("phonenumber",phonenumber);
+                intent.putExtra("hometown",hometown);
+                intent.putExtra("address",address);
+                intent.putExtra("male",male);
+                view.getContext().startActivity(intent);
 
 //                final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
 //                builder.setTitle("Thông báo");

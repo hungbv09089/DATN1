@@ -8,38 +8,53 @@
     android:gravity="center"
     android:layout_gravity="center"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.CreateProfileActivity">
-    <LinearLayout
-        android:orientation="horizontal"
+    tools:context=".ui.activity.EditProfileActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:paddingVertical="15dp"
         android:layout_width="match_parent"
-        android:gravity="center_vertical"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
         <TextView
-            android:paddingLeft="20dp"
-            android:text="Tạo hồ sơ mới"
-            android:textSize="27dp"
-            android:paddingVertical="15dp"
-            android:fontFamily="@font/roboto_bold"
+            android:id="@+id/textView4"
+            android:textColor="#1c8eff"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:gravity="right"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:text="Hủy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView7"
+            app:layout_constraintHorizontal_bias="0.135"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:gravity="center"
-                android:onClick="finish"
-                android:textSize="7pt"
-                android:layout_marginRight="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Hoàn thành"
-                android:textColor="#1c8eff" />
-        </LinearLayout>
-    </LinearLayout>
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chỉnh sửa hồ sơ"
+            android:textSize="9.5pt"
+            android:fontFamily="@font/roboto_bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:textColor="#1c8eff"
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Hoàn thành"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,7 +69,7 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:onClick="selectImage"
-                android:id="@+id/newAvatar"
+                android:id="@+id/EditAvatar"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
@@ -69,7 +84,7 @@
                 android:text="Họ và tên *" />
 
             <EditText
-                android:id="@+id/edtNewFullname"
+                android:id="@+id/edtEditFullname"
                 android:inputType="phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,7 +100,7 @@
                 android:text="Email *" />
 
             <EditText
-                android:id="@+id/edtNewEmail"
+                android:id="@+id/edtEditEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nhập Email"
@@ -100,7 +115,7 @@
                 android:text="Số điện thoại *" />
 
             <EditText
-                android:id="@+id/edtNewPhoneNumber"
+                android:id="@+id/edtEditPhoneNumber"
                 android:inputType="phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,7 +132,7 @@
                 android:text="Quê quán *" />
 
             <EditText
-                android:id="@+id/edtNewHometown"
+                android:id="@+id/edtEditHometown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nhập quê quán"
@@ -133,7 +148,7 @@
                 android:text="Địa chỉ *" />
 
             <EditText
-                android:id="@+id/edtNewAddress"
+                android:id="@+id/edtEditAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nhập địa chỉ"
@@ -148,7 +163,7 @@
                 android:text="CMND *" />
 
             <EditText
-                android:id="@+id/edtNewCMND"
+                android:id="@+id/edtEditCMND"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nhập CMND"
@@ -163,7 +178,7 @@
                 android:text="Năm sinh *" />
 
             <TextView
-                android:id="@+id/edtNewBirhday"
+                android:id="@+id/edtEditBirhday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="onPickDate"
@@ -186,7 +201,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/NewMaleRadio"
+                    android:id="@+id/EditMaleRadio"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Nam" />
