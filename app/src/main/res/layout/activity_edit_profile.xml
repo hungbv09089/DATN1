@@ -21,6 +21,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
+            android:onClick="onBack"
             android:id="@+id/textView4"
             android:textColor="#1c8eff"
             android:layout_width="wrap_content"
@@ -45,6 +46,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:onClick="finish"
             android:textColor="#1c8eff"
             android:id="@+id/textView22"
             android:layout_width="wrap_content"
@@ -85,14 +87,15 @@
 
             <EditText
                 android:id="@+id/edtEditFullname"
-                android:inputType="phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nhập họ và tên"
+                android:inputType="phone"
                 android:keyboardNavigationCluster="true"
                 android:singleLine="true"
                 android:textColor="#000"
                 android:textColorHint="#ababab" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -211,6 +214,21 @@
                     android:layout_height="wrap_content"
                     android:text="Nữ" />
             </RadioGroup>
+
+            <TextView
+
+                android:id="@+id/deleteButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/roboto_regular"
+                android:onClick="deleteProfile"
+                android:paddingVertical="18dp"
+                android:singleLine="true"
+                android:text="Xoá hồ sơ"
+                android:textAlignment="center"
+                android:textColor="#ff2146"
+                android:textSize="9pt" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

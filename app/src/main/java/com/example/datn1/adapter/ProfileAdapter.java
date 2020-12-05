@@ -62,6 +62,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                 String username=data.getStringExtra("username");
                 String password=data.getStringExtra("password");
                 Intent intent= new Intent(view.getContext(), ProfileDetailAcivity.class);
+                intent.putExtra("_id",list.get(position).get_id());
                 intent.putExtra("username",username);
                 intent.putExtra("password",password);
                 intent.putExtra("fullname",fullname);

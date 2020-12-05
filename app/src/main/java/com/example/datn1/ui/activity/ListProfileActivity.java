@@ -106,7 +106,9 @@ public class ListProfileActivity extends AppCompatActivity implements View.OnCli
     private void settingClick() {
         binding.btnCreateProfile.setOnClickListener(this);
     }
-
+    public void onBack(View view){
+        super.onBackPressed();
+    }
 
     @Override
     public void onClick(View view) {
