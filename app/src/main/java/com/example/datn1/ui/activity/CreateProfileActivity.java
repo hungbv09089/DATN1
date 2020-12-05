@@ -53,7 +53,7 @@ public class CreateProfileActivity extends AppCompatActivity {
     TextView edtNewBirhday;
     RadioButton NewMaleRadio;
 
-    String url = "https://dofolife.herokuapp.com/creatNewProfile";
+    String url = "https://dofolife.herokuapp.com/createNewProfile";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +68,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         edtNewBirhday= findViewById(R.id.edtNewBirhday);
         NewMaleRadio= findViewById(R.id.NewMaleRadio);
         storage = FirebaseStorage.getInstance();
+        NewMaleRadio.setChecked(true);
         storageReference = storage.getReference();
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -225,7 +226,7 @@ public class CreateProfileActivity extends AppCompatActivity {
                                                         @Override
                                                         public void run() {
                                                             progressDialog.dismiss();
-                                                            Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
+                                                            Intent intent=new Intent(getApplicationContext(),ListProfileActivity.class);
                                                             intent.putExtra("username",username);
                                                             intent.putExtra("password",password);
                                                             startActivity(intent);
@@ -329,7 +330,7 @@ public class CreateProfileActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             progressDialog.dismiss();
-                            Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
+                            Intent intent=new Intent(getApplicationContext(),ListProfileActivity.class);
                             intent.putExtra("username",username);
                             intent.putExtra("password",password);
                             startActivity(intent);

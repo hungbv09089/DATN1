@@ -112,7 +112,15 @@ public class ListProfileActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnCreateProfile:
-                showDialogCreateProfile();
+//                showDialogCreateProfile();
+                Intent data= getIntent();
+                String username = data.getStringExtra("username");
+                String password = data.getStringExtra("password");
+                Log.d("TAG", password+"onClick: "+username);
+                Intent intent= new Intent(ListProfileActivity.this,CreateProfileActivity.class);
+                intent.putExtra("username",username);
+                intent.putExtra("password",password);
+                startActivity(intent);
                 break;
         }
     }
@@ -140,14 +148,14 @@ public class ListProfileActivity extends AppCompatActivity implements View.OnCli
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent data= getIntent();
-                String username = data.getStringExtra("username");
-                String password = data.getStringExtra("password");
-                Log.d("TAG", password+"onClick: "+username);
-                Intent intent= new Intent(ListProfileActivity.this,CreateProfileActivity.class);
-                intent.putExtra("username",username);
-                intent.putExtra("password",password);
-                startActivity(intent);
+//                Intent data= getIntent();
+//                String username = data.getStringExtra("username");
+//                String password = data.getStringExtra("password");
+//                Log.d("TAG", password+"onClick: "+username);
+//                Intent intent= new Intent(ListProfileActivity.this,CreateProfileActivity.class);
+//                intent.putExtra("username",username);
+//                intent.putExtra("password",password);
+//                startActivity(intent);
             }
         });
 
