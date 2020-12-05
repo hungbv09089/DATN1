@@ -50,7 +50,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     RecyclerView recyclerView;
     DrawerLayout mDrawer;
     String TAG="KHOA";
-    String url = "http://192.168.0.104:3000/getAllPost";
+    String url = "https://dofolife.herokuapp.com/getAllPost";
     private List<TopNew> topNewList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

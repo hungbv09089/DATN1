@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -47,16 +48,16 @@ public class ListProfileActivity extends AppCompatActivity implements View.OnCli
     private ProfileAdapter adapter;
     private AlertDialog alertDialog;
     String username,password;
-    String url = "http://192.168.0.104:3000/getProfileOfAccount";
+    String url = "https://dofolife.herokuapp.com/getProfileOfAccount";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityListProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         profileList= new ArrayList<>();
-        Intent data= getIntent();
-        username=data.getStringExtra("username");
-        password=data.getStringExtra("password");
+        Intent data = getIntent();
+        String username=data.getStringExtra("username");
+        String password=data.getStringExtra("password");
         //Khởi tạo dữ liệu
         OkHttpClient client = new OkHttpClient();
         Moshi moshi = new Moshi.Builder().build();
@@ -91,11 +92,7 @@ public class ListProfileActivity extends AppCompatActivity implements View.OnCli
                 runOnUiThread(new Runnable() {
                     @Override
                         public void run() {
-                        for(int x=0;x<userProfiles.size();x++){
-                            UserProfile user= userProfiles.get(x);
-                            profileList.add(new Profile(user.getFullname(), user.getPhonenumber(), user.getAddress(),user.getEmail(), user.getBirthday(), convertSex(user.getMale()),user.getCMND()));
-                        }
-                        adapter= new ProfileAdapter(profileList);
+                        adapter= new ProfileAdapter(userProfiles);
                         binding.rcv.setAdapter(adapter);
                         binding.rcv.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     }
@@ -143,7 +140,14 @@ public class ListProfileActivity extends AppCompatActivity implements View.OnCli
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ListProfileActivity.this,CreateProfileActivity.class));
+                Intent data= getIntent();
+                String username = data.getStringExtra("username");
+                String password = data.getStringExtra("password");
+                Log.d("TAG", password+"onClick: "+username);
+                Intent intent= new Intent(ListProfileActivity.this,CreateProfileActivity.class);
+                intent.putExtra("username",username);
+                intent.putExtra("password",password);
+                startActivity(intent);
             }
         });
 

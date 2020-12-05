@@ -54,7 +54,7 @@ public class SigningActivity extends BaseActivity{
         super.onBackPressed();
     }
     public void postCreateAccount(){
-        String url = "http://192.168.0.104:3000/createAcount";
+        String url = "https://dofolife.herokuapp.com/createAcount";
         OkHttpClient client = new OkHttpClient();
 
         MediaType MEDIA_TYPE = MediaType.parse("application/json");

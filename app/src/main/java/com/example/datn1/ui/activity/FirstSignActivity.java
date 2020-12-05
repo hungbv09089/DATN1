@@ -60,11 +60,10 @@ public class FirstSignActivity extends AppCompatActivity  {
     FirebaseStorage storage;
     StorageReference storageReference;
     CircleImageView firstAvatar;
-    String url = "http://192.168.0.104:3000/createFirstProfile";
+    String url = "https://dofolife.herokuapp.com/createFirstProfile";
     DatePicker datePicker;
     TextView edtBirhday;
     DatePickerDialog datePickerDialog;
-    LinearLayout datePickerContainer;
     String birthday;
     RadioButton maleRadio;
     @Override
@@ -156,6 +155,10 @@ public class FirstSignActivity extends AppCompatActivity  {
     }
 
     // UploadImage method
+    public void onSubmitFirstView(View view)
+    {
+        Log.d("TAG", "onSubmitFirstView: ");
+    }
     public void uploadImage(View view)
     {
         if (filePath != null) {
@@ -241,10 +244,11 @@ public class FirstSignActivity extends AppCompatActivity  {
                                                     runOnUiThread(new Runnable() {
                                                         @Override
                                                         public void run() {
-                                                            Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
-                                                            intent.putExtra("username",username);
-                                                            intent.putExtra("password",password);
-                                                            startActivity(intent);
+                                                            progressDialog.dismiss();
+//                                                            Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
+//                                                            intent.putExtra("username",username);
+//                                                            intent.putExtra("password",password);
+//                                                            startActivity(intent);
                                                         }
                                                     });
                                                 }
@@ -254,7 +258,7 @@ public class FirstSignActivity extends AppCompatActivity  {
 
                                         }
                                     });
-                                    progressDialog.dismiss();
+
 //                                    Log.e("TAG", "onSuccess: "+taskSnapshot.getStorage().getDownloadUrl());
                                 }
                             })
@@ -285,6 +289,72 @@ public class FirstSignActivity extends AppCompatActivity  {
                                                     + (int)progress + "%");
                                 }
                             });
+        }
+        else{
+            final ProgressDialog progressDialog
+                    = new ProgressDialog(this);
+            progressDialog.setTitle("Loading...");
+            progressDialog.show();
+            String TAG="TEST";
+            Intent intent=getIntent();
+            final String username= intent.getStringExtra("username");
+            final String password= intent.getStringExtra("password");
+            Log.e(TAG, "onSuccess: "+username );
+            Log.e(TAG, "onSuccess: "+password );
+
+            String phonenumber= edtFirstPhoneNumber.getText().toString();
+            String hometown= edtFirstHometown.getText().toString();
+            String address = edtFirstAddress.getText().toString();
+            String CMND = edtFirstCMND.getText().toString();
+            String birthday = edtBirhday.getText().toString();
+            Boolean male= maleRadio.isChecked();
+
+            OkHttpClient client = new OkHttpClient();
+            MediaType MEDIA_TYPE = MediaType.parse("application/json");
+            JSONObject postdata = new JSONObject();
+            try {
+                postdata.put("username", username);
+                postdata.put("password", password);
+                postdata.put("birthday", birthday);
+                postdata.put("CMND", CMND);
+                postdata.put("hometown", hometown);
+                postdata.put("phonenumber", phonenumber);
+                postdata.put("address", address);
+                postdata.put("male", male);
+
+
+            } catch(JSONException e){
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            RequestBody body = RequestBody.create(MEDIA_TYPE, postdata.toString());
+            Request request = new Request.Builder()
+                    .url(url)
+                    .post(body)
+                    .header("Accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .build();
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    Log.e("Error", "Network Error");
+                }
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    final String json = response.body().string();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressDialog.dismiss();
+                            Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
+                            intent.putExtra("username",username);
+                            intent.putExtra("password",password);
+                            startActivity(intent);
+                        }
+                    });
+                }
+            });
+
         }
     }
 }

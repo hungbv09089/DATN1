@@ -1,9 +1,12 @@
 package com.example.datn1.adapter;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +17,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.datn1.R;
 import com.example.datn1.databinding.AdapterProfileBinding;
 import com.example.datn1.model.Profile;
+import com.example.datn1.model.UserProfile;
 import com.example.datn1.ui.activity.CreateProfileActivity;
 import com.example.datn1.ui.activity.ListProfileActivity;
 import com.example.datn1.ui.activity.ScheduleActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder> {
-    private List<Profile> list;
+import de.hdodenhof.circleimageview.CircleImageView;
 
-    public ProfileAdapter(List<Profile> list) {
+public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder> {
+    private List<UserProfile> list;
+    CircleImageView circleImageView;
+    public ProfileAdapter(List<UserProfile> list) {
         this.list = list;
     }
 
@@ -40,36 +47,42 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         holder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View  view) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setTitle("Thông báo");
-                builder.setMessage("Bạn muốn?");
-                builder.setNegativeButton(Html.fromHtml("<font color='#673AB7'>Đặt lịch</font>"), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
 
-                        view.getContext().startActivity(new Intent(view.getContext(), ScheduleActivity.class));
-                    }
-                });
-                builder.setPositiveButton(Html.fromHtml("<font color='#673AB7'>Xem chi tiết</font>"), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                Intent data = ((Activity) view.getContext()).getIntent();
+                String username=data.getStringExtra("username");
+                String password=data.getStringExtra("password");
+                view.getContext().startActivity(new Intent(view.getContext(), ScheduleActivity.class));
 
-                        view.getContext().startActivity(new Intent(view.getContext(), ScheduleActivity.class));
-                    }
-                });
-
-
-                builder.create() ; builder.show();
+//                final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+//                builder.setTitle("Thông báo");
+//                builder.setMessage("Bạn muốn?");
+//                builder.setNegativeButton(Html.fromHtml("<font color='#673AB7'>Đặt lịch</font>"), new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                        view.getContext().startActivity(new Intent(view.getContext(), ScheduleActivity.class));
+//                    }
+//                });
+//                builder.setPositiveButton(Html.fromHtml("<font color='#673AB7'>Xem chi tiết</font>"), new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                        view.getContext().startActivity(new Intent(view.getContext(), ScheduleActivity.class));
+//                    }
+//                });
+//
+//
+//                builder.create() ; builder.show();
             }
         });
-
-        holder.binding.btnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                list.remove(position);
-                notifyDataSetChanged();
-            }
-        });
+//
+//        holder.binding.btnDelete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                list.remove(position);
+//                notifyDataSetChanged();
+//            }
+//        });
     }
 
     @Override
@@ -83,12 +96,16 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         public ViewHolder(@NonNull AdapterProfileBinding itemView) {
             super(itemView.getRoot());
             binding = itemView;
+
         }
 
-        public void bind(Profile profile, String pos) {
+        public void bind(UserProfile profile, String pos) {
+            Log.d("TAG", "bind: "+pos);
             binding.setProfile(profile);
             binding.setPos(pos);
             binding.executePendingBindings();
+            circleImageView=binding.imageView10;
+            Picasso.with(itemView.getContext()).load(profile.getAvatar()).into(circleImageView);
         }
     }
 }

@@ -89,7 +89,7 @@ public class LoginActivity extends BaseActivity {
 
 
 
-            String url = "http://192.168.0.104:3000/getAccountFromEmail";
+            String url = "https://dofolife.herokuapp.com/getAccountFromEmail";
 
             OkHttpClient client = new OkHttpClient();
             Moshi moshi = new Moshi.Builder().build();
@@ -174,7 +174,7 @@ public class LoginActivity extends BaseActivity {
     }
     public void checkAccount(){
         Log.d("TAG", "checkAccount: ");
-        String url = "http://192.168.0.104:3000/getAccount";
+        String url = "https://dofolife.herokuapp.com/getAccount";
         OkHttpClient client = new OkHttpClient();
         Moshi moshi = new Moshi.Builder().build();
         Type AccountType = Types.newParameterizedType(List.class, Account.class);

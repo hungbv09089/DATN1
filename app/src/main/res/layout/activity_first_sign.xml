@@ -26,14 +26,15 @@
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:gravity="right"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <TextView
+                    android:gravity="center"
                     android:onClick="uploadImage"
                     android:textSize="7pt"
                     android:layout_marginRight="20dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="Hoàn thành"
                     android:textColor="#1c8eff" />
             </LinearLayout>
