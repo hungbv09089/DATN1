@@ -3,6 +3,7 @@ package com.example.datn1.ui.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,13 +43,14 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private ActivityHomeBinding binding;
-
+    NavigationView navigationView;
     private HeaderNavBinding headerNavBinding;
     RecyclerView recyclerView;
     DrawerLayout mDrawer;
-    String url = "http://192.168.92.100:3000/getAllPost";
+    String TAG="KHOA";
+    String url = "http://192.168.0.104:3000/getAllPost";
     private List<TopNew> topNewList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +59,10 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_home);
         recyclerView=findViewById(R.id.recyclerViewBottom);
         mDrawer=(DrawerLayout)findViewById(R.id.mDrawer);
-
         headerNavBinding = HeaderNavBinding.bind(binding.navView.getHeaderView(0));
         headerNavBinding.setUser(new User("https://media.tinmoi.vn/upload/camnhung/2020/11/17/130719-ngoc-trinh-bi-mia-mai-tm4.jpg", "Ngọc Trinh", "abcasckjkac@gmail.com"));
-        binding.navView.setNavigationItemSelectedListener(this);
-
+        navigationView =(NavigationView) findViewById(R.id.navView);
+        navigationView.setNavigationItemSelectedListener(this);
         OkHttpClient client = new OkHttpClient();
         Moshi moshi = new Moshi.Builder().build();
         Type postType = Types.newParameterizedType(List.class, Posts.class);
@@ -101,23 +102,37 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     public void onClickMenu(View view){
         mDrawer.openDrawer(Gravity.LEFT);
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
+        switch (item.getItemId()){
+            case R.id.item_logout:
+                break;
             case R.id.item_user:
-                startActivity(new Intent(HomeActivity.this,ListProfileActivity.class));
+                Intent data= getIntent();
+
+                Intent intent= new Intent(this,ListProfileActivity.class);
+                intent.putExtra("username",data.getStringExtra("username"));
+                intent.putExtra("password",data.getStringExtra("password"));
+                Log.e("Log1", "onResponse: "+data.getStringExtra("username") );
+                Log.e("Log1", "onResponse: "+data.getStringExtra("password") );
+                startActivity(intent);
+
+                break;
+            case R.id.item_setting:
+                break;
+            case R.id.item_phone:
                 break;
             case R.id.item_info:
-                startActivity(new Intent(HomeActivity.this,AboutActivity.class));
                 break;
-            case R.id.item_logout:
-                AlertDialog.Builder builder=new AlertDialog.Builder(this);
-                View view= LayoutInflater.from(this).inflate(R.layout.dialog_logout,null,false);
-                builder.setView(view);
-                builder.create();
-                builder.show();
+            default:
                 break;
         }
-        return true;
+        return false;
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }

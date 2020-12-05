@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.FirstSignActivity">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:paddingLeft="20dp"
+            android:text="Khởi tạo hồ sơ"
+            android:textSize="27dp"
+            android:paddingVertical="15dp"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:gravity="right"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:onClick="uploadImage"
+                    android:textSize="7pt"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hoàn thành"
+                    android:textColor="#1c8eff" />
+            </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="200dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:onClick="SelectImage"
+                android:id="@+id/firstAvatar"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginVertical="30dp"
+                android:src="@drawable/avatar"
+                app:civ_border_color="#7abafa"
+                app:civ_border_width="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Số điện thoại *" />
+
+            <EditText
+                android:id="@+id/edtFirstPhoneNumber"
+                android:inputType="phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập số điện thoại"
+                android:keyboardNavigationCluster="true"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textColorHint="#ababab" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Quê quán *" />
+
+            <EditText
+                android:id="@+id/edtFirstHometown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập quê quán"
+                android:keyboardNavigationCluster="false"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textColorHint="#ababab" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Địa chỉ *" />
+
+            <EditText
+                android:id="@+id/edtFirstAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập địa chỉ"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textColorHint="#ababab" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="CMND *" />
+
+            <EditText
+                android:id="@+id/edtFirstCMND"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập CMND"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textColorHint="#ababab" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Năm sinh *" />
+
+            <TextView
+                android:id="@+id/edtBirhday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onPickDate"
+                android:paddingVertical="18dp"
+                android:singleLine="true"
+                android:text="Chọn năm sinh"
+                android:textColor="#ababab"
+                android:textSize="7pt" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Giới tính *" />
+
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/maleRadio"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nam" />
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nữ" />
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

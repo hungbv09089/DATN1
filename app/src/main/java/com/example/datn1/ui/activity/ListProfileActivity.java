@@ -6,40 +6,102 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.datn1.R;
+import com.example.datn1.adapter.BottomNewsAdapter;
 import com.example.datn1.adapter.ProfileAdapter;
 import com.example.datn1.databinding.ActivityListProfileBinding;
+import com.example.datn1.model.Account;
+import com.example.datn1.model.Posts;
 import com.example.datn1.model.Profile;
+import com.example.datn1.model.TopNew;
+import com.example.datn1.model.UserProfile;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class ListProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityListProfileBinding binding;
     private List<Profile> profileList;
     private ProfileAdapter adapter;
     private AlertDialog alertDialog;
-
+    String username,password;
+    String url = "http://192.168.0.104:3000/getProfileOfAccount";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityListProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        profileList= new ArrayList<>();
+        Intent data= getIntent();
+        username=data.getStringExtra("username");
+        password=data.getStringExtra("password");
         //Khởi tạo dữ liệu
-        createData();
+        OkHttpClient client = new OkHttpClient();
+        Moshi moshi = new Moshi.Builder().build();
+        Type UserProfileType = Types.newParameterizedType(List.class, UserProfile.class);
+        final JsonAdapter<List<UserProfile>> jsonAdapter = moshi.adapter(UserProfileType);
+        MediaType MEDIA_TYPE = MediaType.parse("application/json");
+        JSONObject postdata = new JSONObject();
+        try {
+            postdata.put("username", username);
+            postdata.put("password", password);
+        } catch(JSONException e){
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        RequestBody body = RequestBody.create(MEDIA_TYPE, postdata.toString());
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("Error", "Network Error");
+            }
 
-        //Fake dữ liệu
-        fakeData();
-
-        //Setting Recyler View
-        settingRecylerView();
-
-        //Onclick
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String json = response.body().string();
+                final List<UserProfile> userProfiles = jsonAdapter.fromJson(json);
+                runOnUiThread(new Runnable() {
+                    @Override
+                        public void run() {
+                        for(int x=0;x<userProfiles.size();x++){
+                            UserProfile user= userProfiles.get(x);
+                            profileList.add(new Profile(user.getFullname(), user.getPhonenumber(), user.getAddress(),user.getEmail(), user.getBirthday(), convertSex(user.getMale()),user.getCMND()));
+                        }
+                        adapter= new ProfileAdapter(profileList);
+                        binding.rcv.setAdapter(adapter);
+                        binding.rcv.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    }
+                });
+            }
+        });
         settingClick();
 
     }
@@ -48,24 +110,6 @@ public class ListProfileActivity extends AppCompatActivity implements View.OnCli
         binding.btnCreateProfile.setOnClickListener(this);
     }
 
-    private void settingRecylerView() {
-        adapter = new ProfileAdapter(profileList);
-        binding.rcv.setAdapter(adapter);
-        binding.rcv.setLayoutManager(new LinearLayoutManager(this));
-    }
-
-    private void fakeData() {
-        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam",""));
-        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam",""));
-        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam",""));
-        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam",""));
-        profileList.add(new Profile("Hoàng Bá Long", "0362564440", "Lam Điền", "longhbpg07396@fpt.edu.vn", "13/02/2000", "Nam",""));
-
-    }
-
-    private void createData() {
-        profileList = new ArrayList<>();
-    }
 
     @Override
     public void onClick(View view) {
@@ -74,6 +118,11 @@ public class ListProfileActivity extends AppCompatActivity implements View.OnCli
                 showDialogCreateProfile();
                 break;
         }
+    }
+    public String convertSex(Boolean male){
+        if (male==true)
+        return "Name";
+        else return "Nữ";
     }
 
     private void showDialogCreateProfile() {

@@ -35,7 +35,7 @@ public class BottomNewsAdapter extends RecyclerView.Adapter<BottomNewsAdapter.Vi
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(v.getContext(), WebViewActivity.class);
-                intent.putExtra("url",list.get(position).getTitletopview());
+                intent.putExtra("url",list.get(position).getUrl());
                 v.getContext().startActivity(intent);
             }
         });
