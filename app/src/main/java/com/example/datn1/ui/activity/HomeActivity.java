@@ -53,6 +53,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     String url = "https://dofolife.herokuapp.com/getAllPost";
     private List<TopNew> topNewList;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());

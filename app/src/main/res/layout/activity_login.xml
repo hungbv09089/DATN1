@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:textColorHint="#bdbdbd"
+        android:textColor="#000"
         app:hintTextAppearance="@style/MyHintStyle"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,17 +50,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#bdbdbd"
-            android:inputType="textEmailAddress"
             android:hint="Email"
+            android:inputType="textEmailAddress"
             android:textColor="#000"
             android:textColorHint="#bdbdbd" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
+        android:textColor="#000"
         android:textColorHint="#bdbdbd"
         app:hintTextAppearance="@style/MyHintStyle"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
@@ -106,8 +108,8 @@
         android:layout_marginBottom="72dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/roboto_regular"
-        android:text="Quên mật khẩu?"
         android:paddingLeft="5dp"
+        android:text="Quên mật khẩu?"
         android:textAllCaps="false"
         android:textColor="#1c8eff"
         android:textSize="12sp"
@@ -117,17 +119,17 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-    android:id="@+id/tvSignIn"
-    android:onClick="GoToSignUp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="24dp"
-    android:fontFamily="@font/roboto_regular"
-    android:text="Bạn chưa có tài khoản?"
-    android:textColor="#1c8eff"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        android:id="@+id/tvSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/roboto_regular"
+        android:onClick="GoToSignUp"
+        android:text="Bạn chưa có tài khoản?"
+        android:textColor="#1c8eff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
     <TextView
         android:id="@+id/txtAlert"

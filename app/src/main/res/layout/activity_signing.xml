@@ -32,12 +32,13 @@
             android:gravity="center"
             android:text="Vui lòng điền các thông tin cần thiết \n để tạo tài khoản mới"
             android:layout_width="match_parent"
-            android:textColor="#b8b8b8"
+            android:textColor="#000"
             android:layout_height="wrap_content"/>
        <com.google.android.material.textfield.TextInputLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:textColorHint="#bdbdbd"
+           android:textColor="#000"
            app:boxBackgroundMode="outline"
            app:hintTextAppearance="@style/MyHintStyle">
 
@@ -46,7 +47,7 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:backgroundTint="#bdbdbd"
-               android:inputType="textEmailAddress"
+               android:inputType="text"
                android:hint="Họ và tên"
                android:textColor="#000"
                android:textColorHint="#bdbdbd"
@@ -56,6 +57,7 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:textColorHint="#bdbdbd"
+           android:textColor="#000"
            app:boxBackgroundMode="outline"
            app:hintTextAppearance="@style/MyHintStyle">
 
@@ -74,6 +76,7 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:textColorHint="#bdbdbd"
+           android:textColor="#000"
            app:boxBackgroundMode="outline"
            app:hintTextAppearance="@style/MyHintStyle">
 
@@ -82,7 +85,7 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:backgroundTint="#bdbdbd"
-               android:inputType="textEmailAddress"
+               android:inputType="textPassword"
                android:hint="Mật Khẩu"
                android:textColor="#000"
                android:textColorHint="#bdbdbd"
@@ -92,6 +95,7 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:textColorHint="#bdbdbd"
+           android:textColor="#000"
            app:boxBackgroundMode="outline"
            app:hintTextAppearance="@style/MyHintStyle">
 
@@ -100,7 +104,7 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:backgroundTint="#bdbdbd"
-               android:inputType="textEmailAddress"
+               android:inputType="textPassword"
                android:hint="Xác nhận mật khẩu"
                android:textColor="#000"
                android:textColorHint="#bdbdbd"
@@ -124,5 +128,4 @@
                android:textSize="9pt" />
        </LinearLayout>
    </LinearLayout>
-
 </LinearLayout>
